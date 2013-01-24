@@ -1,0 +1,51 @@
+# Copyright (c) 2012 Goran Sterjov <goran.stejrov@gmail.com>
+# Distributed under the terms of the GNU General Public License v3
+
+SUMMARY="The Apache Thrift software framework."
+DESCRIPTION="A software stack with a code generation engine to build services that work efficiently and seamlessly between C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, 
+C#, Cocoa, JavaScript, Node.js, Smalltalk, OCaml and Delphi and other languages"
+
+LICENCES="Apache-2.0"
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS="cpp qt4 c_glib csharp java erlang python perl php php_extensions ruby haskell go d"
+
+DOWNLOADS="https://dist.apache.org/repos/dist/release/${PN}/${PV}/${PN}-${PV}.tar.gz"
+
+DEPENDENCIES="
+    build+run:
+	sys-devel/flex
+	dev-libs/openssl
+	c_glib? ( dev-libs/glib )
+	
+    run:
+	cpp? (
+		sys-libs/zlib:=[>=1.2.3]
+		dev-libs/libevent
+	)
+
+	java? (
+		virtual/jdk:=[>=1.5]
+		dev-java/ant
+		dev-java/ant-ivy
+		dev-java/commons-lang
+		dev-java/slf4j-api
+	)
+
+	perl? (
+		dev-lang/perl
+		dev-perl/Bit-Vector
+		dev-perl/Class-Accessor
+	)
+
+	csharp? ( dev-lang/mono:=[>=1.2.4] )
+	erlang? ( dev-lang/erlang:=[>=12.0.0] )
+	python? ( dev-lang/python:=[>=2.4.0] )
+	php? ( dev-lang/php:=[>=5.0.0] )
+	php_extensions? ( dev-lang/php:=[>=5.0.0] )
+	ruby? ( virtual/rubygems )
+	haskell? ( dev-haskell/haskell-platform )
+	go? ( sys-devel/gcc[go] )
+"
+
+DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=( 'disable-static' )
