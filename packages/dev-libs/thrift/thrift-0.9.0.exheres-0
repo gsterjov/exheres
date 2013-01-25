@@ -49,4 +49,4 @@ DEPENDENCIES="
 "
 
 DEFAULT_SRC_CONFIGURE_PARAMS=( '--disable-static' )
-DEFAULT_SRC_CONFIGURE_OPTION_ENABLES=( 'cpp' 'qt4' 'c_glib' 'csharp' 'java' 'erlang' 'python' 'perl' 'php' 'php_extensions' 'ruby' 'haskell' 'go' 'd' )
+DEFAULT_SRC_CONFIGURE_OPTION_WITHS=( 'cpp' 'qt4' 'c_glib' 'csharp' 'java' 'erlang' 'python' 'perl' 'php' 'php_extensions' 'ruby' 'haskell' 'go' 'd' )
