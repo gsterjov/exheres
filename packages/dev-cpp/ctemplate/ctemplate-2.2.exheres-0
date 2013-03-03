@@ -1,0 +1,11 @@
+# Copyright (c) 2013 Goran Sterjov <goran.stejrov@gmail.com>
+# Distributed under the terms of the GNU General Public License v3
+
+SUMMARY="Powerful but simple template language for C++"
+DESCRIPTION="CTemplate is a simple but powerful template language for C++. It emphasizes separating logic from presentation"
+
+LICENCES="BSD3"
+SLOT=""
+PLATFORMS="~amd64 ~x86"
+
+DOWNLOADS="http://ctemplate.googlecode.com/files/${PNV}.tar.gz"
