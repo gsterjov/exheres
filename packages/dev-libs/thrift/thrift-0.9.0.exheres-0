@@ -2,13 +2,30 @@
 # Distributed under the terms of the GNU General Public License v3
 
 SUMMARY="The Apache Thrift software framework."
-DESCRIPTION="A software stack with a code generation engine to build services that work efficiently and seamlessly between C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, 
-C#, Cocoa, JavaScript, Node.js, Smalltalk, OCaml and Delphi and other languages"
+DESCRIPTION="A software stack with a code generation engine to build services
+that work efficiently and seamlessly between C++, Java, Python, PHP, Ruby,
+Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, OCaml and
+Delphi and other languages"
 
 LICENCES="Apache-2.0"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
-MYOPTIONS="cpp qt4 c_glib csharp java erlang python perl php php_extensions ruby haskell go d"
+MYOPTIONS="
+	cpp
+	qt4
+	c_glib
+	csharp
+	java
+	erlang
+	python
+	perl
+	php
+	php_extensions
+	ruby
+	haskell
+	go
+	d
+"
 
 DOWNLOADS="https://dist.apache.org/repos/dist/release/${PN}/${PV}/${PN}-${PV}.tar.gz"
 
@@ -49,4 +66,19 @@ DEPENDENCIES="
 "
 
 DEFAULT_SRC_CONFIGURE_PARAMS=( '--disable-static' )
-DEFAULT_SRC_CONFIGURE_OPTION_WITHS=( 'cpp' 'qt4' 'c_glib' 'csharp' 'java' 'erlang' 'python' 'perl' 'php' 'php_extensions' 'ruby' 'haskell' 'go' 'd' )
+DEFAULT_SRC_CONFIGURE_OPTION_WITHS=(
+	'cpp'
+	'qt4'
+	'c_glib'
+	'csharp'
+	'java'
+	'erlang'
+	'python'
+	'perl'
+	'php'
+	'php_extensions'
+	'ruby'
+	'haskell'
+	'go'
+	'd'
+)

@@ -3,9 +3,12 @@
 
 SUMMARY="Powerful but simple template language for C++"
 DESCRIPTION="CTemplate is a simple but powerful template language for C++. It emphasizes separating logic from presentation"
+HOMEPAGE="http://code.google.com/p/ctemplate/"
 
 LICENCES="BSD3"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
 DOWNLOADS="http://ctemplate.googlecode.com/files/${PNV}.tar.gz"
+
+UPSTREAM_DOCUMENTATION="http://ctemplate.googlecode.com/svn/trunk/doc/index.html"

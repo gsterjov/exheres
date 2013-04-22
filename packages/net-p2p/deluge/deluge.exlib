@@ -1,0 +1,60 @@
+# Copyright 2009, 2011 Marvin Schmidt <marv@exherbo.org>
+# Distributed under the terms of the GNU General Public License v2
+
+require distutils [ python_dep=2.5 has_lib=false has_bin=true ]
+
+export_exlib_phases src_install
+
+SUMMARY="BitTorrent client with a client/server model"
+HOMEPAGE="http://www.deluge-torrent.org/"
+DOWNLOADS="http://download.deluge-torrent.org/source/${PNV}.tar.bz2"
+
+SLOT="0"
+LICENCES="GPL-2"
+MYOPTIONS="
+    baselayout gtk libnotify webinterface
+
+    gtk          [[ description = [ Install GTK based client for the deluge daemon ] ]]
+    webinterface [[ description = [ Allows controlling the deluge daemon from web ] ]]
+
+    libnotify [[ requires = gtk ]]
+"
+
+# GTK and webinterface are automagic
+DEPENDENCIES="
+    build:
+        dev-python/setuptools
+        dev-util/intltool
+        sys-devel/gettext
+    build+run:
+        dev-python/chardet
+        dev-python/pyopenssl
+        dev-python/pyxdg
+        net-p2p/libtorrent-rasterbar[>=0.16.0][python] [[
+            description = [ 0.16 is required because of fixing patch and api incompatibility ]
+        ]]
+        net-twisted/TwistedCore[>=8.1]
+        net-twisted/TwistedWeb[>=8.1]
+        gtk? (
+            dev-python/dbus-python
+            gnome-bindings/pygtk:2[>=2.12][glade]
+            gnome-desktop/librsvg:2
+            x11-apps/xdg-utils
+            libnotify? ( dev-python/notify-python )
+        )
+        webinterface? ( dev-python/Mako )
+"
+
+UPSTREAM_CHANGELOG="http://dev.deluge-torrent.org/wiki/ChangeLog"
+UPSTREAM_DOCUMENTATION="http://dev.deluge-torrent.org/wiki/UserGuide"
+UPSTREAM_RELEASE_NOTES="http://dev.deluge-torrent.org/wiki/ReleaseNotes"
+
+deluge_src_install() {
+    distutils_src_install
+
+    if option baselayout ; then
+        newinitd "${FILES}"/deluged.init deluged
+        newconfd "${FILES}"/deluged.conf deluged
+    fi
+}
+

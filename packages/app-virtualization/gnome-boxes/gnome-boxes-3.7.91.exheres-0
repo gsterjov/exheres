@@ -4,6 +4,7 @@
 require gnome.org [ suffix=.tar.xz ] gsettings freedesktop-desktop
 
 SUMMARY="A simple GNOME 3 application to access remote or virtual systems"
+HOMEPAGE="https://live.gnome.org/Boxes/"
 
 LICENCES="LGPL-2"
 SLOT="0"
