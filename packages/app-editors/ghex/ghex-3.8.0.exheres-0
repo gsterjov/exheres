@@ -10,3 +10,20 @@ SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
 DOWNLOADS="http://ftp.gnome.org/pub/GNOME/sources/ghex/3.8/${PNV}.tar.xz"
+
+
+DEPENDENCIES="
+    build+run:
+        dev-libs/glib:2[>=2.20.0]
+        x11-libs/gtk+:3[>=3.0.0]
+"
+
+pkg_postinst() {
+    freedesktop-desktop_pkg_postinst
+    gsettings_pkg_postinst
+}
+
+pkg_postrm() {
+    freedesktop-desktop_pkg_postrm
+    gsettings_pkg_postrm
+}
